@@ -8,8 +8,8 @@ dotenv.config({
 // Create and Save new employee
 exports.create = (req, res) => {
 
-// const slackToken =  `${process.env.slack_Token}`
-const slackToken ="xoxb-3505662094784-3494651708561-gGCigimg4th1SfSkElmBf2SL"
+
+
     
   run().then(result=>{
     res.json({message : "message sent successfully"})
@@ -21,7 +21,7 @@ const slackToken ="xoxb-3505662094784-3494651708561-gGCigimg4th1SfSkElmBf2SL"
       const res = await axios.post(url, {
         channel: '#random',
         text: req.body.text ,
-      }, { headers: { authorization: `Bearer ${slackToken}` } });
+      }, { headers: { authorization: `Bearer ${process.env.slack_Token}` } });
     
 
       console.log('Done');
